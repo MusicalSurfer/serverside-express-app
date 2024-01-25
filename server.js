@@ -21,6 +21,7 @@ pool.connect()
 
 const app = express(); // Declare a express app.
 app.use(express.json()); // Middleware to parse request body.
+app.use(express.static('public'));
 // Middleware for basic authentication
 // app.use((req, res, next) => {
 //     const authToken = req.headers['authorization']
@@ -31,6 +32,7 @@ app.use(express.json()); // Middleware to parse request body.
 //         next();
 //     }
 // });
+
 
 // Get request to list all calibers
 app.get('/eft/ballistics', (req, res, next) => {
