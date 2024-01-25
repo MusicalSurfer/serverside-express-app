@@ -1,13 +1,14 @@
 import express from 'express';
 import pkg from 'pg';
+import dotenv from "dotenv";
+dotenv.config();
 
 const Pool = pkg.Pool;
 const pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    database: 'express_app',
-    password: 'postgres',
-    port: 6432
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false,
+    }
 })
 
 pool.connect()
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
         next();
     }
 });
+
 // Get request to list all calibers
 app.get('/eft/ballistics', (req, res, next) => {
     pool.query('SELECT * FROM caliber')
@@ -74,7 +76,6 @@ app.patch('/eft/ballistics/caliber/:calID', (req, res, next) => {
         })
         .catch(next)
 });
-
 //Patch request to update a round.
 app.patch('/eft/ballistics/round/:roundID', (req, res, next) => {
     const roundID = Number(req.params.roundID);
@@ -121,7 +122,6 @@ app.delete('/eft/ballistics/caliber/:calID', (req, res, next) => {
         })
         .catch(next)
 });
-
 // Delete request to delete a round
 app.delete('/eft/ballistics/round/:roundID', (req, res, next) => {
     const roundID = Number(req.params.roundID);
@@ -147,7 +147,6 @@ app.post('/eft/ballistics/caliber', (req, res, next) => {
         })
         .catch(next)
 });
-
 // Post request to create a round
 app.post('/eft/ballistics/round', (req, res, next) => {
     const { name } = req.body;
@@ -176,6 +175,6 @@ app.use((err, req, res, next) => {
     res.sendStatus(500);
 })
 
-app.listen(8001, () => {
-    console.log('listening on port ' + 8001);
+app.listen(process.env.PORT, () => {
+    console.log('listening on port ' + process.env.PORT);
 })
