@@ -14,9 +14,8 @@ const webObj = {
             })
             .then(data => {
                 console.log(data);
-                for (let caliber in data) {
+                for (let caliber of data.data) {
                     console.log(caliber.name);
-                    console.log(data.name);
                     const resultDiv = document.getElementById('results');
                     const resultTitle = document.createElement('div');
                     resultTitle.id = 'resultTitle';
