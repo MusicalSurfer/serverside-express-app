@@ -18,7 +18,7 @@ const webObj = {
                     const caliberID = caliber.id;
                     const resultDiv = document.getElementById('results');
                     const resultTitle = document.createElement('div');
-                    resultTitle.id = 'resultTitle';
+                    resultTitle.className = 'resultTitle';
                     resultTitle.innerHTML = caliber.name;
                     resultTitle.addEventListener('click', () => webObj.roundLinkHandler(caliberID));
                     resultDiv.appendChild(resultTitle);
@@ -44,7 +44,7 @@ const webObj = {
                 for (let round of data.data) {
                     const resultDiv = document.getElementById('results');
                     const resultTitle = document.createElement('div');
-                    resultTitle.id = 'resultTitle';
+                    resultTitle.className = 'resultTitle';
                     resultTitle.innerHTML = round.name;
                     resultDiv.appendChild(resultTitle);
                 }
