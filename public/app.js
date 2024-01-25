@@ -1,8 +1,11 @@
 const webObj = {
+    // Main program function
     mainProgram: () => {
         const caliberLinkButton = document.getElementById('caliberLink');
         caliberLinkButton.addEventListener('click', webObj.caliberLinkHandler);
     },
+
+    // Event handler for when the user clicks caliber on the navbar
     caliberLinkHandler: () => {
         webObj.clearPage();
         fetch('https://eft-ballistics-deploy.onrender.com/eft/ballistics') // Returns a promise that either resolves or doesn't.
@@ -28,6 +31,8 @@ const webObj = {
                 console.error(error);
             });
     },
+
+    // Event handler for when the user selects a caliber
     roundLinkHandler: (id) => {
         webObj.clearPage();
         console.log('id', id);
@@ -75,6 +80,7 @@ const webObj = {
             });
     },
 
+    // Clear page function for clearing the results div.
     clearPage: () => {
         const resultDiv = document.getElementById('results');
         resultDiv.innerHTML = '';
