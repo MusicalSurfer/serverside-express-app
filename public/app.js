@@ -46,7 +46,6 @@ const webObj = {
                     const resultDiv = document.getElementById('results');
                     const resultCard = document.createElement('div');
                     resultCard.className = 'result-card';
-                    resultCard.appendChild(resultTitle);
                     resultCard.innerHTML = `
                         <div class="result-title">${round.name}</div>
                         <ul class="list-group list-group-horizontal">
