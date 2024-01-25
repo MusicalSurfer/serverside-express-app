@@ -3,11 +3,15 @@ body {
     box-sizing: border-box;
     min-height: 100vh;
     margin: 0;
-    padding: 10px;
+    padding: 25px;
 }
 
 #title {
     color: white;
+}
+
+.navbar {
+    opacity: 1 !important;
 }
 
 #header {
@@ -16,7 +20,7 @@ body {
 
 .round-title {
     text-align: center;
-    font-size: 30px;
+    font-size: 20px;
     color: white;
 }
 

@@ -18,11 +18,8 @@ const webObj = {
                 for (let caliber of data.data) {
                     const caliberID = caliber.id;
                     const resultDiv = document.getElementById('results');
-                    const resultTitle = document.createElement('div');
-                    resultTitle.className = 'result-title';
-                    resultTitle.innerHTML = caliber.name;
+                    resultDiv.innerHTML = `<a class="result-title" href=#>${caliber.name}</a>`
                     resultTitle.addEventListener('click', () => webObj.roundLinkHandler(caliberID));
-                    resultDiv.appendChild(resultTitle);
                 }
             })
             .catch(error => {
