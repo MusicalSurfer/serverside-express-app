@@ -13,7 +13,7 @@ const pool = new Pool({
 
 pool.connect()
     .then((pool) => {
-        console.log('Connection successful')
+        console.log('Connected to postgres database')
     })
     .catch((err) => {
         console.error(err)
@@ -22,15 +22,15 @@ pool.connect()
 const app = express(); // Declare a express app.
 app.use(express.json()); // Middleware to parse request body.
 // Middleware for basic authentication
-app.use((req, res, next) => {
-    const authToken = req.headers['authorization']
+// app.use((req, res, next) => {
+//     const authToken = req.headers['authorization']
 
-    if (authToken !== 'Basic YWRtaW46bWVvd21peA==') {
-        res.status(401).json({ message: 'Access denied' })
-    } else {
-        next();
-    }
-});
+//     if (authToken !== 'Basic YWRtaW46bWVvd21peA==') {
+//         res.status(401).json({ message: 'Access denied' })
+//     } else {
+//         next();
+//     }
+// });
 
 // Get request to list all calibers
 app.get('/eft/ballistics', (req, res, next) => {
