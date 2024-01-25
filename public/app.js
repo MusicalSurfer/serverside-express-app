@@ -43,10 +43,23 @@ const webObj = {
                 console.log(data.data);
                 for (let round of data.data) {
                     const resultDiv = document.getElementById('results');
+                    const resultCard = document.createElement('div');
+                    resultCard.className = 'result-card';
                     const resultTitle = document.createElement('div');
                     resultTitle.className = 'result-title';
                     resultTitle.innerHTML = round.name;
-                    resultDiv.appendChild(resultTitle);
+                    resultCard.innerHTML(`
+                    <ul class="list-group list-group-horizontal">
+                        <li class="list-group-item">Damage</li>
+                        <li class="list-group-item">Penetration</li>
+                    </ul>
+                    <ul class="list-group list-group-horizontal-sm">
+                        <li class="list-group-item">${round.dmg}</li>
+                        <li class="list-group-item">${round.penetration}</li>
+                    </ul>
+                    `)
+                    resultCard.appendChild(resultTitle);
+                    resultDiv.appendChild(resultCard);
                 }
             })
             .catch(error => {
