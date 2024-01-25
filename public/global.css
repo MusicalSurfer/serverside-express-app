@@ -8,11 +8,13 @@ body {
 
 #title {
     color: white;
+    display: inline-block;
     font-family: 'Open Sans', sans-serif;
 }
 
 .navbar {
     opacity: 0 !important;
+    display: inline-block;
 }
 
 #header {
