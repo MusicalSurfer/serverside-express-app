@@ -31,11 +31,6 @@ body {
     display: inline-block;
 }
 
-#results {
-    margin: 0;
-    display: flex;
-}
-
 .round-title {
     text-align: center;
     font-size: 20px;
@@ -48,6 +43,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: white;
     padding: 5px;
+    text-decoration: underline 0;
 }
 
 th {
