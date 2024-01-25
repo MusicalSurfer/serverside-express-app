@@ -41,7 +41,7 @@ const webObj = {
             })
             .then(data => {
                 console.log(data);
-                for (let round in data) {
+                for (let round in data.data) {
                     const resultDiv = document.getElementById('results');
                     const resultTitle = document.createElement('div');
                     resultTitle.id = 'resultTitle';
