@@ -10,7 +10,7 @@ const pool = new Pool({
         rejectUnauthorized: false,
     }
 })
-
+// help me im broke
 pool.connect()
     .then((pool) => {
         console.log('Connected to postgres database')
