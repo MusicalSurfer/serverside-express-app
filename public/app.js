@@ -48,17 +48,17 @@ const webObj = {
                     const resultTitle = document.createElement('div');
                     resultTitle.className = 'result-title';
                     resultTitle.innerHTML = round.name;
+                    resultCard.appendChild(resultTitle);
                     resultCard.innerHTML = `
                     <ul class="list-group list-group-horizontal">
                         <li class="list-group-item">Damage</li>
                         <li class="list-group-item">Penetration</li>
                     </ul>
-                    <ul class="list-group list-group-horizontal-sm">
+                    <ul class="list-group list-group-horizontal">
                         <li class="list-group-item">${round.dmg}</li>
                         <li class="list-group-item">${round.penetration}</li>
                     </ul>
                     `
-                    resultCard.appendChild(resultTitle);
                     resultDiv.appendChild(resultCard);
                 }
             })
