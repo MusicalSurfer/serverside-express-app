@@ -42,12 +42,13 @@ const webObj = {
             })
             .then(data => {
                 console.log(data.data);
+                let count = 1;
                 for (let round of data.data) {
                     const resultDiv = document.getElementById('results');
                     const resultCard = document.createElement('div');
                     resultCard.className = 'result-card';
                     resultCard.innerHTML = `
-                        <div class="result-title">${round.name}</div>
+                        <div class="round-title">${round.name}</div>
                         <table class="table">
                             <thead>
                                 <tr>
@@ -58,7 +59,7 @@ const webObj = {
                             </thead>
                             <tbody>
                                 <tr>
-                                <th scope="row">1</th>
+                                <th scope="row">${count}</th>
                                 <td>${round.dmg}</td>
                                 <td>${round.penetration}</td>
                                 </tr>
@@ -66,6 +67,7 @@ const webObj = {
                         </table>
                     `
                     resultDiv.appendChild(resultCard);
+                    count++;
                 }
             })
             .catch(error => {
