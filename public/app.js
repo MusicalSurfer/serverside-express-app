@@ -29,7 +29,7 @@ const webObj = {
             });
     },
     roundLinkHandler: (id) => {
-        clearPage();
+        webObj.clearPage();
         fetch('https://eft-ballistics-deploy.onrender.com/eft/ballistics/caliber/' + id) // Returns a promise that either resolves or doesn't.
             .then(response => {
                 if (!response.ok) {
@@ -52,6 +52,11 @@ const webObj = {
                 // Display an error message if the request fails\
                 console.error(error);
             });
+    },
+
+    clearPage: () => {
+        const resultDiv = document.getElementById('results');
+        resultDiv.innerHTML = '';
     }
 }
 webObj.mainProgram();
