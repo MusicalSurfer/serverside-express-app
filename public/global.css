@@ -34,7 +34,7 @@ body {
 #results {
     margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     height: 100vh;
 }
