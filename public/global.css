@@ -6,13 +6,18 @@ body {
     padding: 10px;
 }
 
-.header {
+#title {
+    color: white;
+}
+
+#header {
     display: inline-block;
 }
 
 .round-title {
     text-align: center;
-    font-size: 10px;
+    font-size: 30px;
+    color: white;
 }
 
 /* #results {
@@ -24,5 +29,6 @@ body {
 }*/
 
 .result-title {
-    font-size: 10px;
+    font-size: 50px;
+    color: white;
 }
