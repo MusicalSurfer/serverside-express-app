@@ -40,7 +40,7 @@ const webObj = {
                 return response.json();
             })
             .then(data => {
-                console.log(data);
+                console.log(data.data);
                 for (let round in data.data) {
                     const resultDiv = document.getElementById('results');
                     const resultTitle = document.createElement('div');
