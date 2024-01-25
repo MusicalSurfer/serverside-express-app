@@ -30,6 +30,7 @@ const webObj = {
     },
     roundLinkHandler: (id) => {
         webObj.clearPage();
+        console.log('id', id);
         fetch('https://eft-ballistics-deploy.onrender.com/eft/ballistics/caliber/' + id) // Returns a promise that either resolves or doesn't.
             .then(response => {
                 if (!response.ok) {
