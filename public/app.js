@@ -65,7 +65,7 @@ const webObj = {
                             </tbody>
                         </table>
                     `
-                    resultDiv.appendChild(resultCard);
+                    resultDiv.appendChild(roundCard);
                     count++;
                 }
             })
