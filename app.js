@@ -2,7 +2,7 @@ import express from 'express';
 import pkg from 'pg';
 import dotenv from "dotenv";
 dotenv.config();
-
+console.log('app.js starting');
 const Pool = pkg.Pool;
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
