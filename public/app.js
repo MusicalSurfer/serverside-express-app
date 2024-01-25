@@ -18,7 +18,7 @@ const webObj = {
                     const resultDiv = document.getElementById('results');
                     const resultTitle = document.createElement('div');
                     resultTitle.id = 'resultTitle';
-                    resultTitle.innerHTML(caliber.name);
+                    resultTitle.innerHTML = caliber.name;
                     resultTitle.addEventListener('click', (e) => webObj.roundLinkHandler(e.target.id));
                     resultDiv.appendChild(resultTitle);
                 }
@@ -43,7 +43,7 @@ const webObj = {
                     const resultDiv = document.getElementById('results');
                     const resultTitle = document.createElement('div');
                     resultTitle.id = 'resultTitle';
-                    resultTitle.innerHTML(round.name);
+                    resultTitle.innerHTML = round.name;
                     resultDiv.appendChild(resultTitle);
                 }
             })
