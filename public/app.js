@@ -22,7 +22,7 @@ const webObj = {
                     const caliberID = caliber.id;
                     const resultDiv = document.getElementById('results');
                     const caliberCard = document.createElement('div');
-                    caliberCard.innerHTML = `<a class="result-title" href=#>${caliber.name}</a>`
+                    caliberCard.innerHTML = `<a class="result-title" href='#'>${caliber.name}</a>`
                     resultDiv.appendChild(caliberCard);
                     caliberCard.addEventListener('click', () => webObj.roundLinkHandler(caliberID));
                 }
