@@ -6,6 +6,10 @@ body {
     padding: 10px;
 }
 
+.header {
+    display: inline-block;
+}
+
 /* #results {
     margin: 0;
     display: flex;

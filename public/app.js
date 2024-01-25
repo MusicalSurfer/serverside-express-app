@@ -52,7 +52,7 @@ const webObj = {
                             <li class="list-group-item flex-fill">Damage</li>
                             <li class="list-group-item flex-fill">Penetration</li>
                         </ul>
-                        <ul class="list-group list-group-horizontal">
+                        <ul class="list-group list-group-horizontal-sm">
                             <li class="list-group-item flex-fill">${round.dmg}</li>
                             <li class="list-group-item flex-fill">${round.penetration}</li>
                         </ul>
