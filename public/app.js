@@ -4,6 +4,7 @@ const webObj = {
         caliberLinkButton.addEventListener('click', webObj.caliberLinkHandler);
     },
     caliberLinkHandler: () => {
+        webObj.clearPage();
         fetch('https://eft-ballistics-deploy.onrender.com/eft/ballistics') // Returns a promise that either resolves or doesn't.
             .then(response => {
                 if (!response.ok) {
@@ -45,19 +46,17 @@ const webObj = {
                     const resultDiv = document.getElementById('results');
                     const resultCard = document.createElement('div');
                     resultCard.className = 'result-card';
-                    const resultTitle = document.createElement('div');
-                    resultTitle.className = 'result-title';
-                    resultTitle.innerHTML = round.name;
                     resultCard.appendChild(resultTitle);
                     resultCard.innerHTML = `
-                    <ul class="list-group list-group-horizontal">
-                        <li class="list-group-item flex-fill">Damage</li>
-                        <li class="list-group-item flex-fill">Penetration</li>
-                    </ul>
-                    <ul class="list-group list-group-horizontal">
-                        <li class="list-group-item flex-fill">${round.dmg}</li>
-                        <li class="list-group-item flex-fill">${round.penetration}</li>
-                    </ul>
+                        <div class="result-title">${round.name}</div>
+                        <ul class="list-group list-group-horizontal">
+                            <li class="list-group-item flex-fill">Damage</li>
+                            <li class="list-group-item flex-fill">Penetration</li>
+                        </ul>
+                        <ul class="list-group list-group-horizontal">
+                            <li class="list-group-item flex-fill">${round.dmg}</li>
+                            <li class="list-group-item flex-fill">${round.penetration}</li>
+                        </ul>
                     `
                     resultDiv.appendChild(resultCard);
                 }
