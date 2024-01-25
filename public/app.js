@@ -15,12 +15,12 @@ const webObj = {
             .then(data => {
                 console.log(data);
                 for (let caliber of data.data) {
-                    console.log(caliber.name);
+                    const caliberID = caliber.id;
                     const resultDiv = document.getElementById('results');
                     const resultTitle = document.createElement('div');
                     resultTitle.id = 'resultTitle';
                     resultTitle.innerHTML = caliber.name;
-                    resultTitle.addEventListener('click', (e) => webObj.roundLinkHandler(e.target.id));
+                    resultTitle.addEventListener('click', () => webObj.roundLinkHandler(caliberID));
                     resultDiv.appendChild(resultTitle);
                 }
             })
