@@ -17,10 +17,13 @@ const webObj = {
             .then(data => {
                 // Display the data on the page.
                 console.log(data);
-                const resultDiv = document.getElementById('results');
-                const resultTitle = document.createElement('div');
-                resultTitle.id = 'resultTitle';
-                resultDiv.appendChild(resultTitle);
+                for (let caliber in data) {
+                    const resultDiv = document.getElementById('results');
+                    const resultTitle = document.createElement('div');
+                    resultTitle.id = 'resultTitle';
+                    resultTitle.textContent(data.name)
+                    resultDiv.appendChild(resultTitle);
+                }
             })
             .catch(error => {
                 // Display an error message if the request fails\
