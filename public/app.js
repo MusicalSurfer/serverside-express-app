@@ -48,14 +48,22 @@ const webObj = {
                     resultCard.className = 'result-card';
                     resultCard.innerHTML = `
                         <div class="result-title">${round.name}</div>
-                        <ul class="list-group list-group-horizontal">
-                            <li class="list-group-item flex-fill">Damage</li>
-                            <li class="list-group-item flex-fill">Penetration</li>
-                        </ul>
-                        <ul class="list-group list-group-horizontal-sm">
-                            <li class="list-group-item flex-fill">${round.dmg}</li>
-                            <li class="list-group-item flex-fill">${round.penetration}</li>
-                        </ul>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Damage</th>
+                                <th scope="col">Penetration</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <th scope="row">1</th>
+                                <td>${round.dmg}</td>
+                                <td>${round.penetration}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     `
                     resultDiv.appendChild(resultCard);
                 }
