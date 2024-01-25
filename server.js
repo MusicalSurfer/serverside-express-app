@@ -22,6 +22,12 @@ pool.connect()
 const app = express(); // Declare a express app.
 app.use(express.json()); // Middleware to parse request body.
 app.use(express.static('public'));
+// Enable CORS for all routes
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:8000');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
 // Middleware for basic authentication
 // app.use((req, res, next) => {
 //     const authToken = req.headers['authorization']
