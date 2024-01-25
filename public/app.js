@@ -50,11 +50,11 @@ const webObj = {
                         <div class="result-title">${round.name}</div>
                         <ul class="list-group list-group-horizontal">
                             <li class="list-group-item flex-fill">Damage</li>
-                            <li class="list-group-item flex-fill">Penetration</li>
+                            <li class="list-group-item">Penetration</li>
                         </ul>
                         <ul class="list-group list-group-horizontal">
                             <li class="list-group-item flex-fill">${round.dmg}</li>
-                            <li class="list-group-item flex-fill">${round.penetration}</li>
+                            <li class="list-group-item">${round.penetration}</li>
                         </ul>
                     `
                     resultDiv.appendChild(resultCard);
