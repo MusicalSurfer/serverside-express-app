@@ -18,8 +18,10 @@ const webObj = {
                 for (let caliber of data.data) {
                     const caliberID = caliber.id;
                     const resultDiv = document.getElementById('results');
-                    resultDiv.innerHTML = `<a class="result-title" href=#>${caliber.name}</a>`
-                    resultTitle.addEventListener('click', () => webObj.roundLinkHandler(caliberID));
+                    const caliberCard = document.createElement('div');
+                    caliberCard.innerHTML = `<a class="result-title" href=#>${caliber.name}</a>`
+                    resultDiv.appendChild(caliberCard);
+                    caliberCard.addEventListener('click', () => webObj.roundLinkHandler(caliberID));
                 }
             })
             .catch(error => {
@@ -42,9 +44,9 @@ const webObj = {
                 let count = 1;
                 for (let round of data.data) {
                     const resultDiv = document.getElementById('results');
-                    const resultCard = document.createElement('div');
-                    resultCard.className = 'result-card';
-                    resultCard.innerHTML = `
+                    const roundCard = document.createElement('div');
+                    roundCard.className = 'round-card';
+                    roundCard.innerHTML = `
                         <div class="round-title">${round.name}</div>
                         <table class="table">
                             <thead>
