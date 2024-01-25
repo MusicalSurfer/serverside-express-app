@@ -6,22 +6,44 @@ const webObj = {
     caliberLinkHandler: () => {
         fetch('https://eft-ballistics-deploy.onrender.com/eft/ballistics') // Returns a promise that either resolves or doesn't.
             .then(response => {
-                // Check if the response status is 'ok' (200)
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }
-                // Parse the JSON response
                 console.log('promise resolved');
                 return response.json();
             })
             .then(data => {
-                // Display the data on the page.
                 console.log(data);
                 for (let caliber in data) {
                     const resultDiv = document.getElementById('results');
                     const resultTitle = document.createElement('div');
                     resultTitle.id = 'resultTitle';
-                    resultTitle.textContent(data.name)
+                    resultTitle.innerHTML(caliber.name);
+                    resultTitle.addEventListener('click', (e) => webObj.roundLinkHandler(e.target.id));
+                    resultDiv.appendChild(resultTitle);
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    },
+    roundLinkHandler: (id) => {
+        clearPage();
+        fetch('https://eft-ballistics-deploy.onrender.com/eft/ballistics/caliber/' + id) // Returns a promise that either resolves or doesn't.
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                console.log('promise resolved');
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                for (let round in data) {
+                    const resultDiv = document.getElementById('results');
+                    const resultTitle = document.createElement('div');
+                    resultTitle.id = 'resultTitle';
+                    resultTitle.innerHTML(round.name);
                     resultDiv.appendChild(resultTitle);
                 }
             })
