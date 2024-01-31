@@ -177,7 +177,7 @@ app.post('/eft/ballistics/round', (req, res, next) => {
     const dmg = Number(req.body.dmg);
     const caliber_id = Number(req.body.caliber_id);
     const penetration = Number(req.body.penetration);
-    const dataList = [name, dmg, caliber_id, penetration]
+    const dataList = [dmg, caliber_id, penetration]
     console.log(penetration);
     for (let i = 0; i < dataList.length; i++) {
         if (isNaN(dataList[i])) {
