@@ -178,12 +178,6 @@ app.post('/eft/ballistics/round', (req, res, next) => {
     const caliber_id = Number(req.body.caliber_id);
     const penetration = Number(req.body.penetration);
     const dataList = [dmg, caliber_id, penetration]
-    // for (let i = 0; i < dataList.length; i++) {
-    //     if (isNaN(dataList[i])) {
-    //         res.status(404).json({ message: 'Round created incorrectly. Usage: name, dmg, caliber_id, penetration' })
-    //     }
-    //     return;
-    // }
 
     pool.query('INSERT INTO round (name, dmg, caliber_id, penetration) VALUES ($1, $2, $3, $4)', [name, dmg, caliber_id, penetration])
         .then(() => {
