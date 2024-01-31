@@ -11,5 +11,5 @@ CREATE TABLE round (
   name TEXT,
   dmg INTEGER,
   caliber_id INTEGER REFERENCES caliber(id) ON DELETE CASCADE,
-  penetration NUMERIC
+  penetration INTEGER
 );
