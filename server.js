@@ -28,17 +28,6 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
     next();
 });
-// Middleware for basic authentication
-// app.use((req, res, next) => {
-//     const authToken = req.headers['authorization']
-
-//     if (authToken !== 'Basic YWRtaW46bWVvd21peA==') {
-//         res.status(401).json({ message: 'Access denied' })
-//     } else {
-//         next();
-//     }
-// });
-
 
 // Get request to list all calibers
 app.get('/eft/ballistics', (req, res, next) => {
@@ -51,7 +40,34 @@ app.get('/eft/ballistics', (req, res, next) => {
         })
         .catch(next)
 });
-// Get request to list one caliber and it's rounds
+
+// Get request to list all rounds
+app.get('/eft/ballistics/round', (req, res, next) => {
+    pool.query('SELECT * FROM round')
+        .then((data) => {
+            if (data.rows.length === 0) {
+                res.status(404).send('Rounds not found');
+            }
+            res.status(200).json({ data: data.rows });
+        })
+        .catch(next)
+});
+
+// Get request to list one round
+app.get('/eft/ballistics/round/:roundID', (req, res, next) => {
+    const roundID = Number(req.params.roundID);
+
+    pool.query('SELECT * FROM round WHERE id = $1', [roundID])
+        .then((data) => {
+            if (data.rows.length === 0) {
+                res.status(404).send('Round not found');
+            }
+            res.status(200).json({ data: data.rows });
+        })
+        .catch(next)
+});
+
+// Get request to list one caliber and it's rounds (Multi-relational)
 app.get('/eft/ballistics/caliber/:calID', (req, res, next) => {
     const calID = Number(req.params.calID);
 
