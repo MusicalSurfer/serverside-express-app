@@ -166,7 +166,7 @@ app.delete('/eft/ballistics/round/:roundID', (req, res, next) => {
 app.post('/eft/ballistics/caliber', (req, res, next) => {
     const { name } = req.body;
     pool.query('INSERT INTO caliber (name) VALUES ($1)', [name])
-        .then((data) => {
+        .then(() => {
             res.status(200).json({ message: 'Caliber created successfully.' })
         })
         .catch(next)
@@ -178,16 +178,15 @@ app.post('/eft/ballistics/round', (req, res, next) => {
     const caliber_id = Number(req.body.caliber_id);
     const penetration = Number(req.body.penetration);
     const dataList = [dmg, caliber_id, penetration]
-    console.log(penetration);
-    for (let i = 0; i < dataList.length; i++) {
-        if (isNaN(dataList[i])) {
-            res.status(404).json({ message: 'Round created incorrectly. Usage: name, dmg, caliber_id, penetration' })
-        }
-        return;
-    }
+    // for (let i = 0; i < dataList.length; i++) {
+    //     if (isNaN(dataList[i])) {
+    //         res.status(404).json({ message: 'Round created incorrectly. Usage: name, dmg, caliber_id, penetration' })
+    //     }
+    //     return;
+    // }
 
     pool.query('INSERT INTO round (name, dmg, caliber_id, penetration) VALUES ($1, $2, $3, $4)', [name, dmg, caliber_id, penetration])
-        .then((data) => {
+        .then(() => {
             res.status(200).json({ message: 'Round created successfully.' })
         })
         .catch(next)
