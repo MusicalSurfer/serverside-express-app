@@ -7,8 +7,6 @@
   
 - Various calibers to explore as well as their associated rounds.
 
-- Webpage is hosted on render via: https://eft-ballistics-deploy.onrender.com/
-
 ### External Sources
 
 - Bootstrap was used for some styling
